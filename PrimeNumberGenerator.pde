@@ -71,6 +71,8 @@ void primePage(){
     
    count = 0;
   }
+   
+  background(0);
   
   PFont OpenSans = createFont("PTSans-Regular",17);
   textFont(OpenSans);

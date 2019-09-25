@@ -1,4 +1,6 @@
 int numberX = 0;
+int PNmbrsDisTextPosX = 160;
+int PNmbrsDisTextPosY = 450;
 int TextPosX0 = 40;
 int TextPosX1 = 40;
 int TextPosY0 = 350;
@@ -14,10 +16,11 @@ int No100 = 100;
 int No30 = 30;
 int NoNo30 = 30;
 int []PNmbrs = new int [50];
-//String []LoadPNmbrs = loadStrings("PrimeNumberStorage.txt");
-//String PrimeNumberStorage = "PrimeNumberStorage.txt";
+int []aryStorageAry = new int [1];
+int aryStorageLog;
 float Loop360 = 0;
 PrintWriter output;
+int thecount = 0;
 BufferedReader Reader;
 
 //ArrayList<Integer> AllPrimes = new ArrayList<>();
@@ -80,13 +83,17 @@ void primePage(){
   String PrimeNumberCountDis = "Prime Number Count : " + PrimeNumberCount;
   text(PrimeNumberCountDis, 580, 20);
   
+  aryStorageLog = aryStorage;
+  String aryStorageLogStrFrm = str(aryStorageLog);
+  String []aryStorageTotalLog = loadStrings("PrimeNumberCount.txt");
+  saveStrings("PrimeNumberCount.txt", append(aryStorageTotalLog, aryStorageLogStrFrm));
+  
   PFont OpenSanss = createFont("PTSans-Regular",180);
   textFont(OpenSanss);
   int PrimeNumberDisPrimeNumberCount = PrimeNumberCount - 1;
   int PrimeNumber = PNmbrs[PrimeNumberDisPrimeNumberCount];
   String PrimeNumberDis = "" + PrimeNumber;
-  text(PrimeNumberDis, 160, 450);
-  
+  text(PrimeNumberDis, PNmbrsDisTextPosX, PNmbrsDisTextPosY);
 }
 
 void draw(){
@@ -110,17 +117,4 @@ void draw(){
     }
     key = 'c';
   }
-  if(key == 'a'){
-    PNmbrs = expand(PNmbrs, 51);
-    for(int reset = 50; reset > -1; reset--){
-      PNmbrs[reset] = 0;
-    }
-      if(aryStorage == 0){
-        No1 = No1 + 100;
-        No100 = No100 + 100;
-        aryStorage = 0;
-        primePage();
-        println(PNmbrs);
-      }
-    }
   }

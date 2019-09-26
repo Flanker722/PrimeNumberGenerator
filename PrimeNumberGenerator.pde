@@ -17,6 +17,7 @@ int No30 = 30;
 int NoNo30 = 30;
 int []PNmbrs = new int [50];
 int []aryStorageAry = new int [1];
+int PrimeNumberInterval = 100;
 int aryStorageLog;
 float Loop360 = 0;
 PrintWriter output;
@@ -75,13 +76,15 @@ void primePage(){
    count = 0;
   }
    
-  background(0);
+  background(360, 60, 100);
   
-  PFont OpenSans = createFont("PTSans-Regular",17);
+  PFont OpenSans = createFont("CenturyGothic-BoldItalic", 14);
   textFont(OpenSans);
   int PrimeNumberCount = aryStorage;
-  String PrimeNumberCountDis = "Prime Number Count : " + PrimeNumberCount;
-  text(PrimeNumberCountDis, 580, 20);
+  String PrimeNumberCountDis = "Prime Number Count In This " + PrimeNumberInterval + "th";
+  String PrimeNumberCountDis2 = "Interval : " + PrimeNumberCount;
+  text(PrimeNumberCountDis2, 560, 36);
+  text(PrimeNumberCountDis, 560, 20);
   
   aryStorageLog = aryStorage;
   String aryStorageLogStrFrm = str(aryStorageLog);
@@ -110,8 +113,8 @@ void draw(){
   if(key == 's'){
     if(aryStorage == 0){
       PNmbrs = expand(PNmbrs, 50);
-      No1 = No1 + 100;
-      No100 = No100 + 100;
+      No1 = No1 + PrimeNumberInterval;
+      No100 = No100 + PrimeNumberInterval;
       primePage();
       println(PNmbrs);
     }

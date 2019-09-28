@@ -110,7 +110,10 @@ void draw(){
   PFont Fontt = createFont("PTSans-Regular",14);
   textFont(Fontt);
   String TimeDis = "Time Elapsed : " + time/1000;
+  String [] TimeDisAry = new String [1];
+  TimeDisAry[0] = TimeDis;
   text(TimeDis, 10, 20);
+  saveStrings("Time Elapsed.txt", TimeDisAry);
   if(key == 'c'){
     PNmbrs = expand(PNmbrs, 51);
     for(int reset = 50; reset > -1; reset--){
@@ -120,6 +123,7 @@ void draw(){
     aryStorage = 0;
     println(PNmbrs);
     text(TimeDis, 10, 20);
+    saveStrings("Time Elapsed.txt", TimeDisAry);
     key  = 's';
   }
   if(key == 's'){

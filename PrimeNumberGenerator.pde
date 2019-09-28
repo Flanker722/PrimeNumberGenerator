@@ -97,9 +97,20 @@ void primePage(){
   int PrimeNumber = PNmbrs[PrimeNumberDisPrimeNumberCount];
   String PrimeNumberDis = "" + PrimeNumber;
   text(PrimeNumberDis, PNmbrsDisTextPosX, PNmbrsDisTextPosY);
+  
+  PFont Fontt = createFont("PTSans-Regular",14);
+  textFont(Fontt);
 }
 
 void draw(){
+  int time = millis();
+  if(key != 'c'){
+    time = 0;
+  }
+  PFont Fontt = createFont("PTSans-Regular",14);
+  textFont(Fontt);
+  String TimeDis = "Time Elapsed : " + time/1000;
+  text(TimeDis, 10, 20);
   if(key == 'c'){
     PNmbrs = expand(PNmbrs, 51);
     for(int reset = 50; reset > -1; reset--){
@@ -108,6 +119,7 @@ void draw(){
     PNmbrs = expand(PNmbrs, 50);
     aryStorage = 0;
     println(PNmbrs);
+    text(TimeDis, 10, 20);
     key  = 's';
   }
   if(key == 's'){
@@ -118,6 +130,7 @@ void draw(){
       primePage();
       println(PNmbrs);
     }
+    text(TimeDis, 10, 20);
     key = 'c';
   }
   }

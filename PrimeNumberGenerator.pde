@@ -30,6 +30,7 @@ void setup(){
   colorMode(HSB,100,100,100);
   size(800,800); 
   primePage();
+  Settings();
 }
   
   
@@ -55,6 +56,12 @@ void setup(){
 //      stroke(360,0,100);
 //      
 //    }
+void Settings(){
+  PFont Opensansss = createFont("PTSans-Regular", 12);
+  textFont(Opensansss);
+  String settingsText = "Settings";
+  text(settingsText, 750, 790);
+}
 
 void primePage(){
   //int primescounted = 0;
@@ -104,6 +111,7 @@ void primePage(){
 
 void draw(){
   int time = 0;
+  int counttt = 0;
   int StartDelay = 3500;
   
   if(key == 'c'){
@@ -134,6 +142,7 @@ void draw(){
     println(PNmbrs);
     text(TimeDisDis, 10, 20);
     saveStrings("Time Elapsed.txt", TimeDisAry);
+    Settings();
     key  = 's';
   }
   if(key == 's'){
@@ -146,6 +155,7 @@ void draw(){
     }
     text(TimeDisDis, 10, 20);
     saveStrings("Time Elapsed.txt", TimeDisAry);
+    Settings();
     key = 'c';
   }
   }

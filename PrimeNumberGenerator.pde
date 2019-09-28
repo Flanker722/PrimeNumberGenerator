@@ -103,17 +103,27 @@ void primePage(){
 }
 
 void draw(){
-  int time = millis();
-  if(key != 'c'){
-    time = 0;
+  int time = 0;
+  int StartDelay = 3500;
+  
+  if(key == 'c'){
+    time = millis()-StartDelay;
   }
   PFont Fontt = createFont("PTSans-Regular",14);
   textFont(Fontt);
   String TimeDis = "Time Elapsed : " + time/1000;
+  String TimeDisDis = TimeDis;
+  String TimeDisR = "";
   String [] TimeDisAry = new String [1];
+  //String [] LoadDisAry = loadStrings("Time Elapsed.txt");
   TimeDisAry[0] = TimeDis;
-  text(TimeDis, 10, 20);
+  
+  if(key != 'c'){
+    TimeDisDis = TimeDisR;
+  } 
+  text(TimeDisDis, 10, 20);
   saveStrings("Time Elapsed.txt", TimeDisAry);
+  
   if(key == 'c'){
     PNmbrs = expand(PNmbrs, 51);
     for(int reset = 50; reset > -1; reset--){
@@ -122,7 +132,7 @@ void draw(){
     PNmbrs = expand(PNmbrs, 50);
     aryStorage = 0;
     println(PNmbrs);
-    text(TimeDis, 10, 20);
+    text(TimeDisDis, 10, 20);
     saveStrings("Time Elapsed.txt", TimeDisAry);
     key  = 's';
   }
@@ -134,7 +144,8 @@ void draw(){
       primePage();
       println(PNmbrs);
     }
-    text(TimeDis, 10, 20);
+    text(TimeDisDis, 10, 20);
+    saveStrings("Time Elapsed.txt", TimeDisAry);
     key = 'c';
   }
   }

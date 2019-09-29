@@ -18,7 +18,9 @@ int NoNo30 = 30;
 int []PNmbrs = new int [50];
 int []aryStorageAry = new int [1];
 int PrimeNumberInterval = 100;
+int alpval = 200;
 int aryStorageLog;
+boolean showSettings = false;
 float Loop360 = 0;
 PrintWriter output;
 int thecount = 0;
@@ -57,12 +59,16 @@ void setup(){
 //      
 //    }
 void Settings(){
+  
   PFont Opensansss = createFont("PTSans-Regular", 12);
   textFont(Opensansss);
   String settingsText = "Settings";
   text(settingsText, 750, 790);
+  
+  strokeWeight(20);
+  stroke(242,204,46, 100);
+  line(750,785,788,785);
 }
-
 void primePage(){
   //int primescounted = 0;
   for(int Nmbrs = No1 ; Nmbrs < No100; Nmbrs++){
@@ -110,6 +116,25 @@ void primePage(){
 }
 
 void draw(){
+  if(mouseX >= 740){
+    if(mouseX <= 798){
+      if(mouseY >= 775){
+        if(mouseY <= 795){
+          if(mousePressed == true){
+             showSettings = true;   
+             if(showSettings == true){
+                strokeWeight(400);
+                stroke(242,204,46, alpval);
+                line(760,10,760,790);
+              }
+             Settings();
+            mousePressed = false;
+          }
+        }
+      }
+    }
+  }
+  
   int time = 0;
   int counttt = 0;
   int StartDelay = 3500;
@@ -158,4 +183,5 @@ void draw(){
     Settings();
     key = 'c';
   }
-  }
+
+}
